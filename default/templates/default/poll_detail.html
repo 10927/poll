@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>投票主題:{{ poll.subject }}</h1>
+
+<ul>
+  {% for item in options %}
+  <li><a href="/vote/{{item.id}}/">{{ item.title }}</a> : {{ item.count }} 票</li>
+  {% endfor %}
+</ul>
+{% endblock %}

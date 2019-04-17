@@ -1,5 +1,11 @@
-<h1>default/poll_list.html</h1>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>投票主題列表</h1>
 
 {% for item in poll_list %}
-    <div>{{ item.subject }}</div>
+    <div>{{item.date_created}}<a href="/poll/{{ item.id }}/">{{ item.subject }}</a></div>
 {% endfor %}
+{% endblock %}
+
+{% block page_title %}主題列表{% endblock %}
