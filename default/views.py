@@ -36,7 +36,20 @@ class PollUpdate(UpdateView):
     model = Poll 
     fields = ['subject'] 
     success_url = '/poll/' 
+
 class PollDelete(DeleteView): 
     model = Poll 
     success_url = '/poll/' 
     template_name ="confirm_delete.html"
+
+class OptionCreate(CreateView):
+    model = Option
+    fields = ['title']
+    template_name = 'default/poll_form.html'
+
+    def get_success_url(seif):
+        return '/poll/()/'.format(self.kwargs['pid'])
+
+    def form_valid(self, form):
+        form.instance.poll_id = self.kwargs['pid']
+        return super().form_valid(form)

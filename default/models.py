@@ -10,8 +10,8 @@ class Poll(models.Model):
 
 class Option(models.Model):
     title = models.CharField("選項標題", max_length=50)
-    count = models.IntegerField("票數")
-    poll_id = models.IntegerField("投票主題")
+    count = models.IntegerField("票數", default=0)
+    poll_id = models.IntegerField()
 
     def __str__(self):
         return str(self.poll_id) + ": " + self.title
