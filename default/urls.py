@@ -9,5 +9,7 @@ urlpatterns = [
     path('poll/create/', PollCreate.as_view()),
     path('poll/<int:pk>/update/', PollUpdate.as_view()),
     path('poll/<int:pk>/delete/', PollDelete.as_view()),
-    path('option/create//<int:pid>', OptionCreate.as_view()),
+    path('option/create/<int:pid>/', OptionCreate.as_view()),
+    path('option/<int:pk>/update/', OptionUpdate.as_view()),
+    path('option/<int:pk>/delete/', OptionDelete.as_view()),
 ]
